@@ -1,0 +1,25 @@
+.HeaderComp {
+    display: flex;
+    box-shadow: 7px 7px 7px black;
+}
+
+.Logo {
+    flex: 1;
+
+}
+
+.Name {
+    flex: 8;
+}
+
+.Name h1 {
+    text-align: center;
+    font-style: cursive;
+    /*padding: 30em 30em;*/
+
+}
+
+.Logo {
+    height: 100px;
+    width: 100px;
+}

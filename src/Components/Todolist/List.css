@@ -1,0 +1,12 @@
+.List {
+
+    display: block;
+    background-color: aqua;
+    height: 100ex;
+}
+
+.List div {
+    padding: 10px;
+    border: 1px solid black;
+}
+

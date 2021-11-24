@@ -1,0 +1,33 @@
+.Todolist {
+
+    display: flex;
+
+    background-color: aqua;
+    justify-content: space-around;
+}
+
+.Todolist div {
+    word-wrap: break-word;
+}
+
+.D1 {
+    flex: 1;
+    word-wrap: break-word;
+}
+
+.D2 {
+    flex: 1;
+}
+
+.D3 {
+    flex: 0.4;
+
+}
+
+.D4 {
+    flex: 0.4;
+}
+
+.D5 {
+    flex: 0.3;
+}
