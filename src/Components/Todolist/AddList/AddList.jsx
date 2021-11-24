@@ -1,21 +1,22 @@
-import React from "react";
+import React     from "react";
 import {NavLink} from "react-router-dom";
-import moment from "moment";
+import moment    from "moment";
 import './AddList.css';
 
 
 const AddList = (props) => {
 
-    let newTitle = React.createRef();                        /*сылка ref для заголовка title*/
+    let inputTextRef = React.createRef();                        /*сылка ref для заголовка title*/
 
-    let newDescription = React.createRef();                       /*сылка ref для описания description*/
+    let inputTextAreaRef = React.createRef();                       /*сылка ref для описания description*/
 
 
     let addToDo = () => {
-        let newTitleP = newTitle.current.value;
-        let newDescriptionP = newDescription.current.value;
+        let newTitleP = inputTextRef.current.value;
+        let newDescriptionP = inputTextAreaRef.current.value;
         props.addToDo(newTitleP, newDescriptionP);
     }
+
 
     const dateToFormat = (moment().format('L'));
 
@@ -25,18 +26,18 @@ const AddList = (props) => {
 
             <p>Заголовок</p>
 
-            <p>
-                <input rows="2" cols="20" ref={newTitle}></input>
-            </p>
-            /*вставляем ref для сілки указатель откуда*/
-            <p>Описание</p>
-            <p><textarea rows="10" cols="40" ref={newDescription}></textarea></p> /*вставляем ref для сілки указатель откуда*/
+            {/*input*/}
+            <input type="text" ref={inputTextRef}/>
 
-            <p>
-                <NavLink to="/list">
-                    <button className="btn" onClick={addToDo}>Add</button>
-                </NavLink>
-            </p>
+            {/*textarea*/}
+            <p>Описание</p>
+            <textarea rows="10" cols="40" ref={inputTextAreaRef}/> {/*вставляем ref для сілки указатель откуда*/}
+
+            <br/>
+            <NavLink to="/list">
+                <button className="btn" onClick={addToDo}>Add</button>
+            </NavLink>
+
             <p>
                 {dateToFormat}
             </p>

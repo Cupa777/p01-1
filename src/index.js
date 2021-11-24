@@ -1,20 +1,20 @@
-import React from 'react'
-import ReactDOM from 'react-dom';
+import React           from 'react'
+import ReactDOM        from 'react-dom';
 import './index.css';
-import App from './App';
+import App             from './App';
 import {BrowserRouter} from "react-router-dom";
-import state, {addToDo} from "./Redux/State";
 import reportWebVitals from "./reportWebVitals";
-
-{/*подключение state.js c данными*/
-}
+import {Provider}      from "react-redux";
+import {store}         from "./Store/Store";
 
 
 ReactDOM.render(
     <React.StrictMode>
-        <BrowserRouter>
-            <App state={state} addToDo={addToDo}/> {/*передаем state в props c данными*/}
-        </BrowserRouter>
+        <Provider store={store}>
+            <BrowserRouter>
+                <App/>
+            </BrowserRouter>
+        </Provider>
     </React.StrictMode>,
     document.getElementById('root')
 )

@@ -1,16 +1,17 @@
-import React from 'react';
+import React           from 'react';
 
 import './App.css';
-import Header from "./Components/Header/Header";
-import Navi from "./Components/Navi/Navi";
-import Profile from "./Components/Profile/Profile";
-import List from "./Components/Todolist/List";
-import Home from "./Components/Home/Home";
-import NoteFound from "./Components/NoteFound";
+import Header          from "./Components/Header/Header";
+import Navi            from "./Components/Navi/Navi";
+import Profile         from "./Components/Profile/Profile";
+import List            from "./Components/Todolist/List";
+import Home            from "./Components/Home/Home";
+import NoteFound       from "./Components/NoteFound";
 import {Route, Routes} from "react-router-dom";
-import AddList from "./Components/Todolist/AddList/AddList";
-import Editlist from "./Components/Todolist/EditList/Editlist";
-import {addToDo} from "./Redux/State";
+import AddList         from "./Components/Todolist/AddList/AddList";
+import Editlist        from "./Components/Todolist/EditList/Editlist";
+import {addToDo}       from "./Redux/State";
+import {connect}       from "react-redux";
 
 const App = (props) => {
     return (
@@ -32,7 +33,7 @@ const App = (props) => {
                         <Route path="/" element={<Home/>}/>
                         {/*<Route path="/login" element={<Login/>}/>*/}
                         <Route path="/profile" element={<Profile/>}/>
-                        <Route path="/list" element={<List todolist={props.state.todolist}/>}/>
+                        <Route path="/list" element={<List store/>}/>
                         <Route path="*" element={<NoteFound/>}/>
                         <Route path="/list/add" element={<AddList addToDo={addToDo}/>}/>
                         <Route path="/list/editlist" element={<Editlist/>}/>
@@ -41,12 +42,14 @@ const App = (props) => {
                 </div>
             </div>
             {/*<Route path='*' component={NoteFound}/> /!*смена адресса переход, смена адресса в Nav*!/*/}
-
-
         </div>
-
     )
-
 }
-
-export default App;
+const mapStateToProps = (store) => {
+    console.log(store)
+    return {
+        user: store.user
+    }
+}
+export default connect(mapStateToProps)(App)
+// export default App;
