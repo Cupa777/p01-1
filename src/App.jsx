@@ -13,7 +13,7 @@ import Editlist        from "./Components/Todolist/EditList/Editlist";
 import {addToDo}       from "./Redux/State";
 import {connect}       from "react-redux";
 
-const App = (props) => {
+const App = () => {
     return (
 
         <div className="App">
@@ -33,7 +33,7 @@ const App = (props) => {
                         <Route path="/" element={<Home/>}/>
                         {/*<Route path="/login" element={<Login/>}/>*/}
                         <Route path="/profile" element={<Profile/>}/>
-                        <Route path="/list" element={<List store/>}/>
+                        <Route path="/list" element={<List/>}/>
                         <Route path="*" element={<NoteFound/>}/>
                         <Route path="/list/add" element={<AddList addToDo={addToDo}/>}/>
                         <Route path="/list/editlist" element={<Editlist/>}/>

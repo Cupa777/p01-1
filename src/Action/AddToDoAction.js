@@ -1,3 +1,5 @@
+export const ADD_TODO = 'ADD_TODO' //константа
+
 export function addToDoAction(id, title, description, date, dedline, progress) {
 
     return {
@@ -10,3 +12,5 @@ export function addToDoAction(id, title, description, date, dedline, progress) {
         progress: progress
     }
 }
+
+// Бардак

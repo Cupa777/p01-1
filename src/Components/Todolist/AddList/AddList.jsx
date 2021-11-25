@@ -1,7 +1,8 @@
-import React     from "react";
-import {NavLink} from "react-router-dom";
-import moment    from "moment";
+import React      from "react";
+import {NavLink}  from "react-router-dom";
+import moment     from "moment";
 import './AddList.css';
+import {ADD_TODO} from "../../../Action/AddToDoAction";
 
 
 const AddList = (props) => {
@@ -11,12 +12,7 @@ const AddList = (props) => {
     let inputTextAreaRef = React.createRef();                       /*сылка ref для описания description*/
 
 
-    let addToDo = () => {
-        let newTitleP = inputTextRef.current.value;
-        let newDescriptionP = inputTextAreaRef.current.value;
-        props.addToDo(newTitleP, newDescriptionP);
-    }
-
+    const addToDO = () => dispatch(addToDO(ADD_TODO))
 
     const dateToFormat = (moment().format('L'));
 
@@ -31,11 +27,12 @@ const AddList = (props) => {
 
             {/*textarea*/}
             <p>Описание</p>
-            <textarea rows="10" cols="40" ref={inputTextAreaRef}/> {/*вставляем ref для сілки указатель откуда*/}
+            <textarea rows="10" cols="40" ref={inputTextAreaRef}/> {/*вставляем ref для сылки указатель откуда*/}
 
             <br/>
             <NavLink to="/list">
                 <button className="btn" onClick={addToDo}>Add</button>
+                {/*БАРДАК*/}
             </NavLink>
 
             <p>
@@ -45,4 +42,6 @@ const AddList = (props) => {
         </div>
     )
 }
+
+
 export default AddList

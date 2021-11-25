@@ -2,6 +2,8 @@ import React     from "react";
 import {NavLink} from "react-router-dom";
 import "./List.css"
 import TodoLists from "./ToDoList/ToDoLists";
+import {connect} from "react-redux";
+import {addToDo} from "../../Redux/State";
 
 
 const List = (props) => {
@@ -28,4 +30,30 @@ const List = (props) => {
         </div>
     )
 }
+
+const mapStateToProps = (state) => {
+    return {
+        state
+        // id: store.id, title: store.title,
+        // description: store.description,
+        // date: store.dete,
+        // dedline: store.dedline,
+        // progress: store.progress
+    }
+
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addToDo: () => {
+            dispatch(addToDo());
+        }
+
+    }
+}
+
+
+export const AddList = connect(mapStateToProps, mapDispatchToProps)(List);
+
+
 export default List

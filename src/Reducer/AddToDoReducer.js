@@ -1,8 +1,11 @@
+import {ADD_TODO} from "../Action/AddToDoAction"; //передача константы из action
+
+
 export default function addToDoReducer(state = [], action) {
     switch (action.type) {
         case 'ADD_TODO':
             return [...state, {
-                id: uuid(),
+                id: Math.floor(Math.random() * 1000),         //рандом ID
                 title: action.title,
                 description: action.description,
                 date: action.dete,
@@ -23,4 +26,4 @@ export default function addToDoReducer(state = [], action) {
             return state;
     }
 }
-
+// Бардак+-

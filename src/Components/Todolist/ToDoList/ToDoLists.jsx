@@ -4,8 +4,7 @@ import './ToDoList.css'
 
 
 const TodoLists = (props) => {
-    /*дополнительный компонент*/
-    // let pach = "/list/" + props.title;npm
+
 
     return (<div className="Todolist">
             <div className="D1"></div>
@@ -25,5 +24,6 @@ const TodoLists = (props) => {
 
 
 }
+
 
 export default TodoLists
